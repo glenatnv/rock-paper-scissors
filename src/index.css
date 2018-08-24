@@ -52,6 +52,21 @@ svg {
     padding: 0 20px;
 }
 
+.c-footer__item {
+    flex: 1 1 33%;
+    text-align: center;
+}
+
+.c-footer__item--score {
+    text-align: left;
+}
+.c-footer__item--state {
+    text-align: center;
+}
+.c-footer__item--percent {
+    text-align: right;
+}
+
 .c-bot_throw {
     grid-column: 1;
     grid-row: 1;
@@ -62,6 +77,17 @@ svg {
 
 .c-bot_throw__icon {
     max-width: 260px;
+    width: 100%;
+}
+
+.c-bot_throw__wrapper {
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+    transform: translateY(-100px);
+}
+.c-bot_throw__wrapper--visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .c-result {
@@ -83,10 +109,15 @@ svg {
     opacity: 0.5;
     padding: 0;
     width: 60px;
+    transition: transform 0.07s ease;
 }
 
 .c-throw_option:focus {
     outline: none;
+}
+
+.c-throw_option:active {
+    transform: scale(0.8);
 }
 
 .c-throw_option--active {

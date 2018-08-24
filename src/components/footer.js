@@ -4,11 +4,11 @@ class Footer extends Component {
     render() {
         return (
             <footer className="c-footer">
-                <span>Score</span>
-                <span>
+                <span className="c-footer__item  c-footer__item--score">Score</span>
+                <span className="c-footer__item  c-footer__item--state">
                     {this.props.totalWon} / {this.props.totalPlayed}
                 </span>
-                <span>{this.calculateWinPercentage(this.props)}%</span>
+                <span className="c-footer__item  c-footer__item--percent">{this.calculateWinPercentage(this.props)}%</span>
             </footer>
         );
     }

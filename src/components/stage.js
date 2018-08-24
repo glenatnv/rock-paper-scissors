@@ -10,6 +10,7 @@ class Stage extends Component {
         this.state = {
             playerThrow: null,
             botThrow: null,
+            botThrowVisible: false,
             result: null
         };
     }
@@ -17,23 +18,31 @@ class Stage extends Component {
     handleClick(e) {
         var botThrow = this.botThrow();
         var playerThrow = e.currentTarget.value;
+        var that = this;
 
         this.setState({
             playerThrow: e.currentTarget.value,
-            botThrow: botThrow
+            botThrow: botThrow,
+            botThrowVisible: false
         });
 
-        var winner = this.determineWinner(botThrow, playerThrow);
+        setTimeout(function() {
+            that.setState({
+                botThrowVisible: true
+            });
 
-        if (winner === 'draw') {
-            this.setState({ result: 'Draw' });
-        } else if (winner === 'player') {
-            this.setState({ result: 'You Win' });
-        } else if (winner === 'bot') {
-            this.setState({ result: 'You Lose' });
-        }
+            var winner = that.determineWinner(botThrow, playerThrow);
 
-        console.log('Bot: ' + botThrow, 'Player: ' + playerThrow, 'Winner: ' + winner);
+            if (winner === 'draw') {
+                that.setState({ result: 'Draw' });
+            } else if (winner === 'player') {
+                that.setState({ result: 'You Win' });
+            } else if (winner === 'bot') {
+                that.setState({ result: 'You Lose' });
+            }
+
+            console.log('Bot: ' + botThrow, 'Player: ' + playerThrow, 'Winner: ' + winner);
+        }, 300);
     }
 
     botThrow() {
@@ -88,7 +97,7 @@ class Stage extends Component {
         return (
             <section className="c-stage">
                 <div className="c-bot_throw">
-                    <Bot botThrow={this.state.botThrow} />
+                    <Bot botThrow={this.state.botThrow} visible={this.state.botThrowVisible} />
                 </div>
                 <div className="c-result">
                     <Result value={this.state.result} />
