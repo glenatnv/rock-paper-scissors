@@ -22,12 +22,12 @@ class Stage extends Component {
 
         this.setState({
             playerThrow: e.currentTarget.value,
-            botThrow: botThrow,
             botThrowVisible: false
         });
 
         setTimeout(function() {
             that.setState({
+                botThrow: botThrow,
                 botThrowVisible: true
             });
 
@@ -41,7 +41,7 @@ class Stage extends Component {
                 that.setState({ result: 'You Lose' });
             }
 
-            console.log('Bot: ' + botThrow, 'Player: ' + playerThrow, 'Winner: ' + winner);
+            that.props.onGameComplete(winner);
         }, 300);
     }
 

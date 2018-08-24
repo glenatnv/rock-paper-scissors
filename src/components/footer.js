@@ -18,9 +18,9 @@ class Footer extends Component {
         var totalPlayed = props.totalPlayed;
 
         if (Number.parseInt(totalPlayed, 10) !== 0) {
-            return (totalWon / totalPlayed) * 100;
+            return ((totalWon / totalPlayed) * 100).toFixed(1);
         } else {
-            return 0;
+            return 0.0;
         }
     }
 }

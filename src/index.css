@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono');
+
 html {
     height: 100%;
 }
@@ -6,9 +8,10 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background: #111;
-    color: #fff;
+    background: #191919;
+    color: #fafafa;
     min-height: 100%;
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 img,
@@ -24,11 +27,16 @@ svg {
 
 .c-header {
     grid-row: 1;
-    background: rgba(255, 255, 255, 0.1);
+    background: #000;
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.c-header__logo img {
+    width: 40px;
+    float: left;
 }
 
 .c-header__link {
@@ -93,6 +101,10 @@ svg {
 .c-result {
     font-size: 48px;
     text-align: center;
+}
+
+.c-result--empty {
+    font-size: 24px;
 }
 
 .c-throw_options {
