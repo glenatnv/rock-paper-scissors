@@ -85,7 +85,7 @@ svg {
     display: flex;
     align-items: center;
     justify-content: center;
-    perspective: 250px;
+    perspective: 200px;
 }
 
 .c-bot_throw__icon {
@@ -96,12 +96,12 @@ svg {
 .c-bot_throw__wrapper {
     opacity: 0;
     transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
-    transform: translateY(-100px) rotateX(-180deg);
+    transform: translateY(-75%) rotateX(0deg) rotateY(0deg) rotateZ(-235deg);
     transform-origin: 50% 50%;
 }
 .c-bot_throw__wrapper--visible {
     opacity: 1;
-    transform: translateY(0) rotateX(0);
+    transform: translateY(0) rotateX(0) rotateY(0) rotateZ(0);
     transition-delay: 0.2s;
 }
 

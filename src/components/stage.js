@@ -26,6 +26,7 @@ class Stage extends Component {
             botThrowVisible: false
         });
 
+        // Determine the winner and update the state. Timeout slows the gameplay down
         setTimeout(function() {
             var winner = that.determineWinner(botThrow, playerThrow);
 
@@ -36,6 +37,7 @@ class Stage extends Component {
 
             that.props.onGameComplete(winner);
 
+            // Set the result message, wrapped in a timeout to give a delayed effect after the throw
             setTimeout(function() {
                 if (winner === 'draw') {
                     that.setState({ result: 'Draw' });
