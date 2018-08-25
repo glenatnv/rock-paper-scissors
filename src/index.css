@@ -2,6 +2,9 @@
 
 html {
     height: 100%;
+    overscroll-behaviour: contain;
+    touch-action: none;
+    -webkit-overflow-scrolling: auto;
 }
 
 body {
@@ -32,6 +35,7 @@ svg {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 10;
 }
 
 .c-header__logo img {
@@ -81,6 +85,7 @@ svg {
     display: flex;
     align-items: center;
     justify-content: center;
+    perspective: 250px;
 }
 
 .c-bot_throw__icon {
@@ -90,12 +95,14 @@ svg {
 
 .c-bot_throw__wrapper {
     opacity: 0;
-    transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
-    transform: translateY(-100px);
+    transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+    transform: translateY(-100px) rotateX(-180deg);
+    transform-origin: 50% 50%;
 }
 .c-bot_throw__wrapper--visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) rotateX(0);
+    transition-delay: 0.2s;
 }
 
 .c-result {

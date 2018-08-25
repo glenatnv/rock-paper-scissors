@@ -21,27 +21,30 @@ class Stage extends Component {
         var that = this;
 
         this.setState({
+            result: '',
             playerThrow: e.currentTarget.value,
             botThrowVisible: false
         });
 
         setTimeout(function() {
+            var winner = that.determineWinner(botThrow, playerThrow);
+
             that.setState({
                 botThrow: botThrow,
                 botThrowVisible: true
             });
 
-            var winner = that.determineWinner(botThrow, playerThrow);
-
-            if (winner === 'draw') {
-                that.setState({ result: 'Draw' });
-            } else if (winner === 'player') {
-                that.setState({ result: 'You Win' });
-            } else if (winner === 'bot') {
-                that.setState({ result: 'You Lose' });
-            }
-
             that.props.onGameComplete(winner);
+
+            setTimeout(function() {
+                if (winner === 'draw') {
+                    that.setState({ result: 'Draw' });
+                } else if (winner === 'player') {
+                    that.setState({ result: 'You Win' });
+                } else if (winner === 'bot') {
+                    that.setState({ result: 'You Lose' });
+                }
+            }, 600);
         }, 300);
     }
 
