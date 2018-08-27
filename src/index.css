@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono');
 
+@font-face {
+    font-family: 'uni_neuelight';
+    src: url('fonts/unineue/unineue-light-webfont.eot');
+    src: url('fonts/unineue/unineue-light-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/unineue/unineue-light-webfont.woff2') format('woff2'), url('fonts/unineue/unineue-light-webfont.woff') format('woff'), url('fonts/unineue/unineue-light-webfont.ttf') format('truetype'), url('fonts/unineue/unineue-light-webfont.svg#uni_neuelight') format('svg'), local('.SFNSText-Light'), local('.HelveticaNeueDeskInterface-Light'), local('.LucidaGrandeUI'), local('Ubuntu Light'), local('Segoe UI Light'), local('Roboto-Light'), local('DroidSans'), local('Tahoma');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
     height: 100%;
     overscroll-behaviour: contain;
@@ -14,7 +22,8 @@ body {
     background: #191919;
     color: #fafafa;
     min-height: 100%;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'uni_neuelight', monospace;
+    letter-spacing: 0.05em;
 }
 
 img,
